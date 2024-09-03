@@ -10,18 +10,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            padding: 1rem; /* Ensure content is not cut off */
+            box-sizing: border-box;
         }
         .container {
             background-color: white;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            width: 100%;
             max-width: 400px;
-            box-sizing: border-box; /* Ensure padding is included in the width */
+            box-sizing: border-box;
         }
         h1 {
             background-color: #4285f4;
@@ -52,17 +54,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        /* Remove spinner controls from number input */
-        input[type="number"] {
-            -webkit-appearance: textfield; /* for Safari/Chrome */
-            -moz-appearance: textfield; /* for Firefox */
-            appearance: textfield; /* standard property */
-        }
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
         .result {
             background-color: #f8f8f8;
         }
@@ -78,6 +69,25 @@
         }
         .rtl {
             direction: rtl;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem; /* Smaller font size on small screens */
+                padding: 0.75rem; /* Adjust padding */
+            }
+            .currency-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .info {
+                padding: 0.5rem;
+            }
         }
     </style>
 </head>
