@@ -10,13 +10,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
             background-color: white;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -26,21 +28,22 @@
             background-color: #4285f4;
             color: white;
             padding: 1rem;
-            margin: -2rem -2rem 1rem -2rem;
+            margin: -1rem -1rem 1rem -1rem;
             border-radius: 8px 8px 0 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: 1.5rem;
         }
         .currency-icon {
             background-color: #34a853;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 18px;
         }
         input, .result {
             width: 100%;
@@ -50,11 +53,10 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        /* Remove spinner controls from number input */
         input[type="number"] {
-            -webkit-appearance: textfield; /* for Safari/Chrome */
-            -moz-appearance: textfield; /* for Firefox */
-            appearance: textfield; /* standard property */
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            appearance: textfield;
         }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
@@ -69,6 +71,7 @@
             padding: 1rem;
             border-radius: 4px;
             margin-top: 1rem;
+            font-size: 0.9rem;
         }
         .info p {
             margin: 0.5rem 0;
@@ -76,26 +79,31 @@
         .rtl {
             direction: rtl;
         }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>
-            USDT to SAR Converter
+            USDT to SAR
             <div class="currency-icon">$</div>
         </h1>
         <p class="rtl">تحويل الدولار الرقمي إلى ريال سعودي</p>
         
-        <label for="usdtAmount">Enter USDT Amount | الدخل كمية الدولار الرقمي  :</label>
+        <label for="usdtAmount">Enter USDT Amount | الدخل سعر الدولار الرقمي:</label>
         <input type="number" id="usdtAmount" placeholder="Enter USDT amount ادخل مبلغ USDT">
         
-        <label for="sarAmount">SAR Amount (before fee) | المبلغ بالريال السعودي (قبل العمولة):</label>
+        <label for="sarAmount">SAR Amount (before fee) | المبلغ بالريال (قبل العمولة):</label>
         <div id="sarAmount" class="result"></div>
         
-        <label for="feeAmount">Fee Amount (SAR) | مبلغ العمولة (ريال سعودي):</label>
+        <label for="feeAmount">Fee Amount (SAR) | مبلغ العمولة (بالريال):</label>
         <div id="feeAmount" class="result"></div>
         
-        <label for="totalAmount">Total price (including fee) | إجمالي المبلغ بالريال (شامل العمولة):</label>
+        <label for="totalAmount">Total price including fee | إجمالي المبلغ مع العمولة:</label>
         <div id="totalAmount" class="result"></div>
         
         <div class="info">
