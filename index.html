@@ -13,7 +13,7 @@
             min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
-            padding: 1rem; /* Ensure content is not cut off */
+            padding: 1rem;
             box-sizing: border-box;
         }
         .container {
@@ -31,20 +31,9 @@
             padding: 1rem;
             margin: 0;
             border-radius: 8px 8px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            text-align: right; /* Align text from right to left */
+            direction: rtl; /* Ensure text is right-to-left */
             box-sizing: border-box;
-        }
-        .currency-icon {
-            background-color: #34a853;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
         }
         input, .result {
             width: 100%;
@@ -74,13 +63,8 @@
         /* Responsive Design */
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.2rem; /* Smaller font size on small screens */
-                padding: 0.75rem; /* Adjust padding */
-            }
-            .currency-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 20px;
+                font-size: 1.2rem;
+                padding: 0.75rem;
             }
             .container {
                 padding: 1rem;
@@ -94,8 +78,7 @@
 <body>
     <div class="container">
         <h1>
-            حاسبة شراء عملة الدولار الرقمي بالريال السعودي 
-            <div class="currency-icon">₮</div>
+            حاسبة شراء عملة الدولار الرقمي بالريال السعودي
         </h1>
         <p class="rtl">تحويل الدولار الرقمي إلى ريال سعودي</p>
         
