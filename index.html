@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDT to SAR Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            background-color: #4285f4;
+            color: white;
+            padding: 1rem;
+            margin: -2rem -2rem 1rem -2rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .currency-icon {
+            background-color: #34a853;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        input, .result {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* Remove spinner controls from number input */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .result {
+            background-color: #f8f8f8;
+        }
+        .info {
+            background-color: #e8f0fe;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .info p {
+            margin: 0.5rem 0;
+        }
+        .rtl {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            USDT to SAR Converter
+            <div class="currency-icon">$</div>
+        </h1>
+        <p class="rtl">تحويل الدولار الرقمي إلى ريال سعودي</p>
+        
+        <label for="usdtAmount">Enter USDT Amount الدخل مبلغ USDT:</label>
+        <input type="number" id="usdtAmount" placeholder="Enter USDT amount ادخل مبلغ USDT">
+        
+        <label for="sarAmount">SAR Amount (before fee) | المبلغ بالريال السعودي (قبل الرسوم):</label>
+        <div id="sarAmount" class="result"></div>
+        
+        <label for="feeAmount">Fee Amount (SAR) | مبلغ الرسوم (ريال سعودي):</label>
+        <div id="feeAmount" class="result"></div>
+        
+        <label for="totalAmount">Total price (including fee) | إجمالي المبلغ بالريال (شامل الرسوم):</label>
+        <div id="totalAmount" class="result"></div>
+        
+        <div class="info">
+            <p>* Exchange Rate: USDT = 3.75 SAR</p>
+            <p class="rtl">(سعر الصرف: USDT = 3.75 SAR)</p>
+            <p>* Fee is 10% of the Total USDT Price</p>
+            <p class="rtl">(العمولة: 10٪ من إجمالي مبلغ)</p>
+            <p>* The costs of sending USDT to the wallet will be borne by the buyer, not the seller.</p>
+            <p class="rtl">(تكاليف إرسال العملة على المشتري وليس البائع)</p>
+        </div>
+    </div>
+
+    <script>
+        const usdtInput = document.getElementById('usdtAmount');
+        const sarAmount = document.getElementById('sarAmount');
+        const feeAmount = document.getElementById('feeAmount');
+        const totalAmount = document.getElementById('totalAmount');
+
+        const exchangeRate = 3.75;
+        const feePercentage = 0.10;
+
+        usdtInput.addEventListener('input', calculateConversion);
+
+        function calculateConversion() {
+            const usdtValue = parseFloat(usdtInput.value) || 0;
+            const sarValue = usdtValue * exchangeRate;
+            const fee = sarValue * feePercentage;
+            const total = sarValue + fee;
+
+            sarAmount.textContent = sarValue.toFixed(2) + ' SAR';
+            feeAmount.textContent = fee.toFixed(2) + ' SAR';
+            totalAmount.textContent = total.toFixed(2) + ' SAR';
+        }
+    </script>
+</body>
+</html>
