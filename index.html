@@ -16,21 +16,23 @@
         }
         .container {
             background-color: white;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            width: 90%;
             max-width: 400px;
+            box-sizing: border-box; /* Ensure padding is included in the width */
         }
         h1 {
             background-color: #4285f4;
             color: white;
             padding: 1rem;
-            margin: -2rem -2rem 1rem -2rem;
+            margin: 0;
             border-radius: 8px 8px 0 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-sizing: border-box;
         }
         .currency-icon {
             background-color: #34a853;
@@ -69,6 +71,7 @@
             padding: 1rem;
             border-radius: 4px;
             margin-top: 1rem;
+            box-sizing: border-box;
         }
         .info p {
             margin: 0.5rem 0;
