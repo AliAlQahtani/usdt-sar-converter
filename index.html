@@ -52,7 +52,9 @@
         }
         /* Remove spinner controls from number input */
         input[type="number"] {
-            -moz-appearance: textfield;
+            -webkit-appearance: textfield; /* for Safari/Chrome */
+            -moz-appearance: textfield; /* for Firefox */
+            appearance: textfield; /* standard property */
         }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
@@ -84,7 +86,7 @@
         </h1>
         <p class="rtl">تحويل الدولار الرقمي إلى ريال سعودي</p>
         
-        <label for="usdtAmount">Enter USDT Amount الدخل مبلغ USDT:</label>
+        <label for="usdtAmount">Enter USDT Amount |الدخل كمية الدولار الرقمي  :</label>
         <input type="number" id="usdtAmount" placeholder="Enter USDT amount ادخل مبلغ USDT">
         
         <label for="sarAmount">SAR Amount (before fee) | المبلغ بالريال السعودي (قبل العمولة):</label>
